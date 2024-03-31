@@ -27,6 +27,13 @@ function Pokemon() {
         getData()
     },[])
 
+    useEffect(() => {
+        if (pokemonName) {
+            setSelectedPokemon(pokemonName)
+            setPokemonSelect(pokemonName)
+        }
+    }, [pokemonName])
+
     const handleChange = (event) => {
         setPokemonSelect(event.target.value)
     }
@@ -40,7 +47,7 @@ function Pokemon() {
       <>
       {
         (selectedPokemon == "" && data) ? 
-            <>
+            <div className="selectWrapper">
             <h2>Selecciona un pokemon</h2>
             <select onChange={(event) => handleChange(event)}>
                 <option value="">Pokemones</option>
@@ -51,7 +58,7 @@ function Pokemon() {
                 }
             </select>
             <button onClick={() => handleClick()}>Ver detalle</button>
-            </>
+            </div>
             : null
       }
       {selectedPokemon !== "" && <PokemonCard pokeName={selectedPokemon} />}

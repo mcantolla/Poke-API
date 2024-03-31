@@ -26,10 +26,10 @@ function PokemonCard() {
         <>
             {
                 pokemonName !== "" && pokeDetails && (
-                    <div>
-                        <h3>{pokemonName}</h3>
+                    <div className="statWrapper">
                         <img src={pokeDetails.sprites.front_default}/>
                         <ul>
+                            <h3>{pokemonName}</h3>
                             <li>HP: {pokeDetails.stats[0].base_stat}</li>
                             <li>Attack: {pokeDetails.stats[1].base_stat}</li>
                             <li>Defense: {pokeDetails.stats[2].base_stat}</li>
